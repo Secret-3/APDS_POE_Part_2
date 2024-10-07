@@ -9,7 +9,10 @@ exports.signup = async (req,res,next) => {
         if(user){
             return next(new createError('User already exists!',400))
         }
-        const hashedPassword = await bcrypt.hash(req.body.password,12);
+
+        //Salt and Hash the password (by default, it's 10 rounds!!)
+        const salt = await bcrypt.genSalt(12); //You can adjust the number to control the salt rounds
+        const hashedPassword = await bcrypt.hash(req.body.password, salt);
     
         const newUser = await User.create({
             ...req.body,
@@ -39,7 +42,6 @@ exports.signup = async (req,res,next) => {
 };
 
 //LOGGING USER
-exports.login = async (req,res,next) => {
     exports.login = async (req, res, next) => {
         try {
           const { email, password } = req.body;
@@ -73,4 +75,3 @@ exports.login = async (req,res,next) => {
             next(error);
         }
       };
-};

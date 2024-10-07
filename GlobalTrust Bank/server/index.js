@@ -5,7 +5,7 @@ const express = require('express');
    const authRouter = require('./routes/authRoutes');
 
    // 1) MIDDLEWARES
-   app.use(cors({ origin: 'http://localhost:5173' }));
+   app.use(cors({ origin: 'http://localhost:5174' }));
    app.use(express.json());
 
    // 2) ROUTES

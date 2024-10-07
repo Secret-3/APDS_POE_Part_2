@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.css';
 import '../../App.css';
 import { Link } from 'react-router-dom';
@@ -12,8 +12,29 @@ import logo from '../../LoginAssets/gbtlogo.jpg';
 import { FaUserShield } from 'react-icons/fa';
 import { BsFillShieldLockFill } from 'react-icons/bs';
 import { AiOutlineSwapRight } from 'react-icons/ai';
+import useLogin from '../../hooks/useLogin';
 
 const Login = () => {
+
+    const { loginUser, loading, error } = useLogin();
+
+    const [formValues, setFormValues] = useState({
+        email: '',
+        password: '',
+    });
+
+    const handleChange = (e) => {
+        const { id, value } = e.target;
+        setFormValues((prevValues) => ({
+            ...prevValues,
+            [id]: value,
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await loginUser(formValues);
+    };
     return (
         <div className='loginPage flex'>
             <div className='container flex'>
@@ -37,12 +58,12 @@ const Login = () => {
                         <img src={logo} alt="Logo Image" className='logo' />
                         <h3>Let Us Know You!</h3>
                     </div>
-                    <form action="" className='form grid'>
+                    <form action="" className='form grid' onSubmit={handleSubmit}>
                         <div className="inputDiv">
-                            <label htmlFor="username">Username</label>
+                            <label htmlFor="email">email</label>
                             <div className="input flex">
                                 <FaUserShield className='icon' />
-                                <input type="text" id='username' placeholder='Enter Username' />
+                                <input type="text" id='email' placeholder='Enter email ' value={formValues.email} onChange={handleChange}/>
                             </div>
                         </div>
 
@@ -50,7 +71,7 @@ const Login = () => {
                             <label htmlFor="password">Password</label>
                             <div className="input flex">
                                 <BsFillShieldLockFill className='icon' />
-                                <input type="password" id='password' placeholder='Enter Password' />
+                                <input type="password" id='password' placeholder='Enter Password' value={formValues.password} onChange={handleChange}/>
                             </div>
                         </div>
 
