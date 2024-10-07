@@ -16,21 +16,27 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(true);
     }
   }, []);
-const login = (newToken, newData) => {
+
+  const login = (newToken, newData) => {
     localStorage.setItem('user_data', JSON.stringify({ userToken: newToken, user: newData }));
     setToken(newToken);
     setUserData(newData);
     setIsAuthenticated(true);
-  }
+  };
+  
   const logout = () => {
     localStorage.removeItem('user_data');
     setToken(null);
     setUserData(null);
     setIsAuthenticated(false);
-  }
-  return <AuthContext.Provider value={(token, isAuthenticated, login, logout, userData)}>
-    {children}
-  </AuthContext.Provider>;
+  };
+
+  // Properly format the Provider value
+  return (
+    <AuthContext.Provider value={{ token, isAuthenticated, login, logout, userData }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export const useAuth = () => useContext(AuthContext);
