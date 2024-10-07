@@ -22,16 +22,16 @@ exports.signup = async (req,res,next) => {
         });
 
         res.status(201).json({
-            status: 'success',
-            message,
-            token,
-            user: {
-                _id: newUser._id,
-                name: newUser.name,
-                email: newUser.email,
-                role: newUser.role,
-              }
-        });
+          status: 'success',
+          message: 'User registered successfully!',
+          token,
+          user: {
+              _id: newUser._id,
+              name: newUser.name,
+              email: newUser.email,
+              role: newUser.role,
+          }
+      });
 
     } catch (error) {
         next(error);
