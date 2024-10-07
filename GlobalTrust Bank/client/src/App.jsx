@@ -1,7 +1,49 @@
-import './App.css'
-import Overview from './Compnents/Overview/Overview'
-import Login from './Compnents/Login/Login'
-import Register from './Compnents/Register/Register'
+import './App.css';
+import Overview from './Components/Overview/Overview';
+import Login from './Components/Login/Login';
+import Register from './Components/Register/Register';
+
+// Import React Router components
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from 'react-router-dom';
+
+// Create a router
+const router = createBrowserRouter([
+  {
+    path: '/login',
+    element: <Login />  // Use direct component
+  },
+  {
+    path: '/',
+    element: <Login />  // Use direct component
+  },
+  {
+    path: '/register',
+    element: <Register />  // Use direct component
+  },
+  {
+    path: '/overview',
+    element: <Overview />  // Use direct component
+  },
+]);
+
+function App() {
+  return (
+    <div>
+    <RouterProvider router={router} />  // Use RouterProvider for routing
+    </div>
+  )
+}
+
+export default App;
+
+
+/*import './App.css';
+import Overview from '../Components/Overview/Overview';
+import Login from '../Components/Login/Login';
+import Register from '../Components/Register/Register';
 
 //Impact React react 
 import{
@@ -12,7 +54,7 @@ import{
 //Letcs create a router
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/login',
     element: <div><Login/></div>
   },
   {

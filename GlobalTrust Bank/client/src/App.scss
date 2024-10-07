@@ -1,110 +1,243 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;800&display=swap'); 
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
 
-//Let set up our default styling
-:root{
-    --primaryColor: hsl(95,55%,56%);
+// Default styling and variables
+:root {
+    --primaryColor: hsl(94, 55%, 56%);
     --hoverColor: hsl(93, 75%, 76%);
-    --paleGreen:  hsl(96, 75%, 89%);
-    --whiteColor:hsl(0, 0%, 100%);
-    --blackColor:   hsl(0, 0%, 18%);
---greyText:hsl(0, 0%, 75%);
---bgColor: hsl(113, 11%, 85%);
---inputColor: hsl(330, 12%, 97%);
---inputColor:hsl(154, 14%, 90%);
-
-/*Font and Typorgraphy*/
---biggestFontSize: 2.5rem;
---h1FontSize: 1.Srem;
---h2FontSize: 1.25rem;
---h3FontSize: 1rem;
---normalFontSize: .938rem;
---smallFontSize: .813rem;
---smallestFontSize: .75rem;
+    --paleGreen: hsl(96, 75%, 89%);
+    --whiteColor: hsl(0, 0%, 100%);
+    --blackColor: hsl(0, 0%, 18%);
+    --greyText: hsl(0, 0%, 75%);
+    --bgColor: hsl(113, 11%, 85%);
+    --inputColor: hsl(330, 12%, 97%);
+    --biggestFontSize: 2.5rem;
+    --h1FontSize: 1.5rem;
+    --h2FontSize: 1.25rem;
+    --h3FontSize: 1rem;
+    --normalFontSize: .938rem;
+    --smallFontSize: .813rem;
+    --smallestFontSize: .75rem;
 }
 
-.flex{
-    display: flex;
-    align-items: center;
-}
-
-.grid{
-    display: grid;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-html{
+html {
     font-size: 90%;
+    font-family: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;800&display=swap');
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-li{
-list-style: none;
+li {
+    list-style: none;
 }
 
-.icon{
+.icon {
     font-size: var(--h2FontSize);
+    cursor: pointer;
 }
 
-img,video{
+img, video {
     height: auto;
     width: 100%;
 }
 
-.message{
-    display: none;//we shall how all this come to use,be patient guys :)
-}
-.showMessage{
-    display: block;
-    color: var(--whiteColor);
-    background: rgb(255,0,0);
-    border-radius: 3px;
-    text-align: center;
-}
-
-.btn{
-    border: none;
-outline: none;
-cursor: pointer;
-border-radius: 8px;
-padding: .8rem 1rem;
-color: var(--greyText);
-}
-
-btn .icon{
-    margin-left: .5rem;
-}
-.btn:hover{
-    color: var(--primaryColor);
-    background-color: var(--paleGreen);
-}
-
-//Pages stylings
-.loginPage, .registerPage{
+// Main login page
+.loginPage {
     height: 100vh;
-    width: 100%;
-    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bgColor);
+    box-shadow: 0 7px 50px rgb(214, 223, 213);
+    overflow: hidden;
+}
+
+.container {
+    height: 75vh;
+    width: 70%;
+    display: flex;
+    justify-content: flex-start; // Align items to start
+    background: var(--whiteColor);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 7px 50px rgb(214,233,213);
+}
 
-    .container{
-        height: 75vh;
-        width: 60%;
-        margin: auto;
-        justify-content: space-between;
+// Image Div
+.imageDiv {
+    position: relative;
+    flex-basis: 50%; // Take half of the width
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .textDiv {
+        position: relative;
+        z-index: 1;
+        color: var(--whiteColor);
+        text-align: center;
+        padding: 1rem;
+
+        .title {
+            font-size: 35px;
+            font-weight: 800;
+        }
+
+        p {
+            font-size: var(--normalFontSize);
+            font-weight: 400;
+            margin-top: 1rem;
+        }
+    }
+
+    .footerDiv {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(2px);
         border-radius: 10px;
-        background: hsl(0,0%,91%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
+        .text {
+            color: var(--whiteColor);
+        }
+
+        .btn {
+            background: var(--whiteColor);
+            color: var(--primaryColor);
+            padding: .8rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: .3s ease;
+
+            &:hover {
+                background: var(--hoverColor);
+                color: var(--blackColor);
+            }
+        }
+    }
+}
+
+// Form Section
+.formDiv {
+    flex-basis: 50%; // Take half of the width
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    background-color: var(--whiteColor);
+
+    .headerDiv {
+        text-align: center;
+        margin-bottom: 2rem;
+
+        img {
+            width: 60px; // Logo size
+            margin-bottom: 1rem; // Space between logo and heading
+        }
+
+        h3 {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--blackColor);
+        }
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .inputDiv {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+            label {
+                font-size: 14px;
+                font-weight: 500;
+                color: var(--blackColor);
+            }
+
+            .input {
+                display: flex;
+                gap: .5rem;
+                padding: 1rem;
+                background: var(--inputColor);
+                border-radius: 10px;
+                align-items: center;
+
+                input {
+                    flex-grow: 1;
+                    border: none;
+                    background: transparent;
+                    outline: none;
+                    font-size: 14px;
+                    color: var(--blackColor);
+                }
+
+                .icon {
+                    color: var(--greyText);
+                }
+            }
+        }
+
+        .btn {
+            padding: .8rem;
+            background: var(--primaryColor);
+            border-radius: 10px;
+            color: var(--whiteColor);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: .3s ease;
+
+            &:hover {
+                background: var(--hoverColor);
+                color: var(--blackColor);
+
+                .icon {
+                    color: var(--blackColor);
+                    transform: translateX(5px);
+                }
+            }
+        }
+
+        .forgotPassword {
+            font-size: 13px;
+            color: var(--blackColor);
+            opacity: 0.8;
+            text-align: center;
+
+            a {
+                text-decoration: underline;
+                cursor: pointer;
+                opacity: 1;
+            }
+        }
     }
 }
