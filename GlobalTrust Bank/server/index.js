@@ -2,14 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
-
+const authRouter = require('./routes/authRoutes');
 // 1) MIDDLEWARES
 app.use(cors()); // cors needs to be invoked as a function
 app.use(express.json());
 
 // 2) ROUTES
 // Add your routes here
-
+app.use('/api/auth', authRouter);
 // 3) MONGODB CONNECTION
 mongoose
   .connect('mongodb://127.0.0.1:27017/authentication')
