@@ -2,6 +2,7 @@ import React from 'react';
 import './Login.css';
 import '../../App.css';
 import { Link } from 'react-router-dom';
+import '../../App.scss';
 
 // Import assets
 import image from '../../LoginAssets/GTBmain.jpg';
