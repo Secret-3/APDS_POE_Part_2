@@ -1,11 +1,11 @@
 const express = require('express');
    const mongoose = require('mongoose');
-   const cors = require('cors'); // Import CORS
+   const cors = require('cors');
    const app = express();
    const authRouter = require('./routes/authRoutes');
 
    // 1) MIDDLEWARES
-   app.use(cors({ origin: 'http://localhost:5173' })); // Match this with your frontend's origin
+   app.use(cors({ origin: 'http://localhost:5173' }));
    app.use(express.json());
 
    // 2) ROUTES

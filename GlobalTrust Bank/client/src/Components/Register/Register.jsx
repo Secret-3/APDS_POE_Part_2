@@ -19,7 +19,7 @@ const Register = () => {
 
     const [formValues, setFormValues] = useState({
         email: '',
-        name: '', // Change 'username' to 'name'
+        name: '',
         password: '',
         confirmPassword: '',
     });
