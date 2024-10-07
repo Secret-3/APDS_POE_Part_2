@@ -1,4 +1,42 @@
-import { useState } from 'react'
+import './App.css'
+import Overview from './Compnents/Overview/Overview'
+import Login from './Compnents/Login/Login'
+import Register from './Compnents/Register/Register'
+
+//Impact React react 
+import{
+  createBrowserRouter,
+  RouterProvider,
+} from 'react-router-dom'
+
+//Letcs create a router
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <div><Login/></div>
+  },
+  {
+    path: '/register',
+    element: <div><Register/></div>
+  },
+  {
+    path: '/overview',
+    element: <div><Overview/></div>
+  },
+
+])
+function App(){
+  return(
+    <div>
+      <Overview/>
+      <Login/>
+      <Register/>
+    </div>
+  )
+}
+
+export default App
+/*import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -32,4 +70,4 @@ function App() {
   )
 }
 
-export default App
+export default App*/
