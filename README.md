@@ -1,6 +1,11 @@
 # GlobalTrust Bank - International Payment Portal
 
+## Version
+Version 1.0 
 
+## Demo Video Link: 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Introduction
 
 GlobalTrust Bank offers a state-of-the-art international payment portal designed to meet the evolving needs of customers in a globalized financial landscape. As international transactions become increasingly common, the demand for a reliable, efficient, and secure payment platform is paramount. Our portal empowers customers to manage their international payments conveniently and securely.
@@ -222,6 +227,18 @@ Why It Works: Even if an attacker manages to intercept traffic, they won’t be 
 These layered security measures are highly effective in defending the GlobalTrust Bank international payment portal from a wide range of attacks. By implementing encryption, input validation, rate limiting, and secure password storage, the system is better equipped to maintain the confidentiality, integrity, and availability of both user data and payment transactions.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Frequently Asked Questions
+
+Q: What is GlobalTrust Bank's International Payment Portal?
+A: The GlobalTrust Bank International Payment Portal allows customers to securely make international payments using the SWIFT network. It provides a user-friendly interface where customers can register, log in, and manage their transactions
+
+Q: What information is required for registration?
+A: To register, customers must provide their full name, ID number, account number, and password. All sensitive data is securely stored using encryption mechanisms, and password security is enforced with hashing and salting to ensure maximum protection.
+
+Q: Is my data secure on the GlobalTrust Bank portal?
+A: Yes. We implement industry-standard security measures such as HTTPS with SSL encryption, password hashing and salting, input validation, and other protocols to protect your data. We also utilize measures such as rate limiting and whitelisting to protect the portal from external threats.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## References 
 
 Hacking, E., 2022. What Is Session Hijacking, and How Can It Be Prevented?. [Online] Available at: https://www.eccouncil.org/cybersecurity-exchange/ethical-hacking/how-to-prevent-session-hijacking-attacks/
