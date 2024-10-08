@@ -182,6 +182,9 @@ exports.login = async (req, res, next) => {
             },
         });
 
+        // Redirect to the overview page after successful login
+        res.cookie('token', token, { httpOnly: true }); // Store token in a cookie if needed
+        return res.redirect('/overview'); // Redirect to overview page
     } catch (error) {
         next(error);
     }

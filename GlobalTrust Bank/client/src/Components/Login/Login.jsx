@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import '../../App.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../App.scss';
 
 // Import assets
@@ -15,7 +15,7 @@ import { AiOutlineSwapRight } from 'react-icons/ai';
 import useLogin from '../../hooks/useLogin';
 
 const Login = () => {
-
+    const navigate = useNavigate(); // Correctly initializing useNavigate
     const { loginUser, loading, error } = useLogin();
 
     const [formValues, setFormValues] = useState({
@@ -34,7 +34,8 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await loginUser(formValues);
+        await loginUser(formValues); // Await loginUser directly here
+        navigate('/overview'); // Navigate after loginUser
     };
 
     return (
@@ -60,13 +61,21 @@ const Login = () => {
                         <img src={logo} alt="Logo" />
                         <h3>Let Us Know You!</h3>
                     </div>
+                    {error && <p className="error">{error}</p>} {/* Display error message */}
                     <form className='form grid' onSubmit={handleSubmit}>
                         {/* Username Field */}
                         <div className="inputDiv">
                             <label htmlFor="username">Username</label>
                             <div className="input flex">
                                 <FaUserShield className='icon' />
-                                <input type="text" id='username' placeholder='Enter Username' value={formValues.username} onChange={handleChange} required />
+                                <input
+                                    type="text"
+                                    id='username'
+                                    placeholder='Enter Username'
+                                    value={formValues.username}
+                                    onChange={handleChange}
+                                    required
+                                />
                             </div>
                         </div>
 
@@ -75,7 +84,14 @@ const Login = () => {
                             <label htmlFor="accountNumber">Account Number</label>
                             <div className="input flex">
                                 <FaUserShield className='icon' />
-                                <input type="text" id='accountNumber' placeholder='Enter Account Number' value={formValues.accountNumber} onChange={handleChange} required />
+                                <input
+                                    type="text"
+                                    id='accountNumber'
+                                    placeholder='Enter Account Number'
+                                    value={formValues.accountNumber}
+                                    onChange={handleChange}
+                                    required
+                                />
                             </div>
                         </div>
 
@@ -84,7 +100,14 @@ const Login = () => {
                             <label htmlFor="password">Password</label>
                             <div className="input flex">
                                 <BsFillShieldLockFill className='icon' />
-                                <input type="password" id='password' placeholder='Enter Password' value={formValues.password} onChange={handleChange} required />
+                                <input
+                                    type="password"
+                                    id='password'
+                                    placeholder='Enter Password'
+                                    value={formValues.password}
+                                    onChange={handleChange}
+                                    required
+                                />
                             </div>
                         </div>
 
@@ -92,9 +115,6 @@ const Login = () => {
                             <span>{loading ? 'Logging in...' : 'Login'}</span>
                             <AiOutlineSwapRight className='icon' />
                         </button>
-
-                        <a href="/overview">Overview</a>
-
                     </form>
                 </div>
             </div>
