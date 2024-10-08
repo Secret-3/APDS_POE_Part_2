@@ -10,19 +10,19 @@ const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+={}\[\]:
 // REGISTER USER
 exports.signup = async (req, res, next) => {
     try {
-        const { email, password } = req.body;
+        const { fullName,username,idNumber,accountNumber,password } = req.body;
 
         // Validate email
-        if (!emailRegex.test(email)) {
+        /*if (!emailRegex.test(email)) {
             return next(new createError('Invalid email format!', 400));
-        }
+        }*/
 
         // Validate password
-        if (!passwordRegex.test(password)) {
+        /*if (!passwordRegex.test(password)) {
             return next(new createError('Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.', 400));
-        }
+        }*/
 
-        const user = await User.findOne({ email: req.body.email });
+        const user = await User.findOne({ idNumber: req.body.idNumber });
         if (user) {
             return next(new createError('User already exists!', 400));
         }
@@ -47,8 +47,8 @@ exports.signup = async (req, res, next) => {
             token,
             user: {
                 _id: newUser._id,
-                name: newUser.name,
-                email: newUser.email,
+                name: newUser.fullName,
+                idNumber: newUser.idNumber,
                 role: newUser.role,
             }
         });
@@ -61,19 +61,19 @@ exports.signup = async (req, res, next) => {
 // LOGGING USER
 exports.login = async (req, res, next) => {
     try {
-        const { email, password } = req.body;
+        const { username,accountNumber,password } = req.body;
 
         // Validate email
-        if (!emailRegex.test(email)) {
+        /*if (!emailRegex.test(email)) {
             return next(new createError('Invalid email format!', 400));
-        }
+        }*/
 
         // Validate password
         if (!passwordRegex.test(password)) {
             return next(new createError('Invalid password format!', 400));
         }
 
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ accountNumber });
 
         if (!user) return next(new createError('User not found!', 404));
 
@@ -93,8 +93,8 @@ exports.login = async (req, res, next) => {
             message: 'Logged in successfully',
             user: {
                 _id: user._id,
-                name: user.name,
-                email: user.email,
+                name: user.fullName,
+                idNumber: user.idNumber,
                 role: user.role,
             },
         });

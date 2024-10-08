@@ -19,6 +19,7 @@ const Register = () => {
 
     const [formValues, setFormValues] = useState({
         fullName: '',
+        username:'',
         idNumber: '',
         accountNumber: '',
         password: '',
