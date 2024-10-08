@@ -1,4 +1,4 @@
-# APDS_POE_Part_2
+# GlobalTrust Bank - International Payment Portal
 Demo Repo for APDS POE Part 2
 ## Introduction
 ![Uploading image.png…]()
@@ -38,6 +38,78 @@ Frontend: JavaScript, React, SCSS, CSS, HTML
 Backend: Node.js, Express
 Database: MongoDB
 Development Tools: Visual Studio Code, Git
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Installation
+
+To set up the GlobalTrust Bank international payment portal on your local machine, follow these detailed steps. 
+
+Cloning the Repository
+1. Open your terminal and navigate to the directory where you want to clone the project.
+2. Clone the repository using the following command:
+   ```
+   git clone https://github.com/Secret-3/APDS_POE_Part_2.git
+   ```
+3. Navigate into the cloned directory:
+   ```
+   cd APDS_POE_Part_2
+   ```
+then 
+```
+   cd "GlobalTrust Bank"
+   ```
+
+Installing Dependencies
+1. The project has a client-side and server-side structure. Navigate to the client directory and install the required dependencies:
+   ```
+   cd client
+   npm install
+   ```
+
+2. Next, navigate to the server directory and install the required dependencies:
+   ```
+   cd ../server
+   npm install
+   ```
+3. Run the Client:
+
+Once the dependencies are installed, go back to the client folder:
+
+```
+   cd client
+   npm run dev
+   ```
+
+This will start the frontend in development mode. It should provide a URL where you can access the frontend, usually something like http://localhost:3000 or http://localhost:5173.
+
+4. Run the Server:
+Navigate to the server folder and start the server application:
+```
+   cd ../server
+   npm start
+   ```
+Once both the client and server are running, the frontend will communicate with the backend.
+
+## Usage
+1. Registration: 
+   - Navigate to the registration page in your browser.
+   - Fill in your full name, ID number, account number, and password. This information will be securely stored in the database.
+
+2. Login:
+   - After registering, navigate to the login page.
+   - Enter your username, account number, and password to log in.
+
+3. Making Payments:
+   - Once logged in, you will have the option to enter the payment amount, select the relevant currency, and choose a payment provider which will be SWIFT).
+   - Fill in the required account information and SWIFT code for the transaction.
+   - Click on Pay Now to finalize the payment process. 
+
+Stopping the Servers
+
+To stop the servers, simply return to the terminal windows running the server and client and press `Ctrl + C` in each window.
+
+Troubleshooting
+- If you encounter issues with missing dependencies or errors during startup, ensure that you have installed all required packages in both the client and server directories.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Functional Requirements
