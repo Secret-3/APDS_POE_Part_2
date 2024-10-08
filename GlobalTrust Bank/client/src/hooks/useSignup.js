@@ -18,7 +18,7 @@ const useSignup = () => {
       setLoading(true);
       console.log('Sending request to register user', values);
 
-      const res = await fetch('http://localhost:3000/api/auth/signup', {
+      const res = await fetch('https://localhost:3000/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

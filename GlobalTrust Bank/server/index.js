@@ -1,8 +1,21 @@
-const express = require('express');
+const https = require('https');
+const fs = require('fs');
+//import { Certificate } from "crypto";
+    
+    const express = require('express');
    const mongoose = require('mongoose');
+
+
+   const PORT = 3000;
    const cors = require('cors');
    const app = express();
    const authRouter = require('./routes/authRoutes');
+
+const server = https.createServer({
+  key: fs.readFileSync('keys/privatekey.pem') ,
+  cert: fs.readFileSync('keys/certificate.pem')
+},app);
+
 
    // 1) MIDDLEWARES
    app.use(cors({ origin: 'http://localhost:5173' }));
@@ -17,6 +30,15 @@ const express = require('express');
      .then(() => console.log('Connected to MongoDB'))
      .catch((error) => console.error('Failed to connect to MongoDB:', error));
 
+     app.use((req,res,next)=>
+     {
+         res.setHeader("Access-Control-Allow-Origin","*");
+         res.setHeader("Access-Control-Allow-Headers","*");
+         res.setHeader("Access-Control-Allow-Methods","*");
+         next();
+     })
+
+
    // 4) GLOBAL ERROR HANDLER
    app.use((err, req, res, next) => {
      err.statusCode = err.statusCode || 500;
@@ -29,7 +51,6 @@ const express = require('express');
    });
 
    // 5) SERVER
-   const PORT = 3000;
-   app.listen(PORT, () => {
+   server.listen(PORT, () => {
      console.log(`App running on port ${PORT}`);
    });
