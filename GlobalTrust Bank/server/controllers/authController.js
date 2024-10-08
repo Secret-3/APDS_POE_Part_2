@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const createError = require('../utils/appError');
 const bcrypt = require('bcryptjs');
 
-// Define regex patterns
+// Defined egex patterns
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Basic email regex
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+={}\[\]:;"'<>,.?~`-]).{8,}$/; // Password must have at least 8 characters, 1 upper, 1 lower, 1 digit, 1 special char
 

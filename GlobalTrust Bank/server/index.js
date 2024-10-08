@@ -1,6 +1,6 @@
-const https = require('https');
+const https = require('http');
 const fs = require('fs');
-//import { Certificate } from "crypto";
+const overviewRouter = require('./routes/overviewRoutes');
     
     const express = require('express');
    const mongoose = require('mongoose');
@@ -18,8 +18,10 @@ const server = https.createServer({
 
 
    // 1) MIDDLEWARES
-   app.use(cors({ origin: 'http://localhost:5173' }));
+   app.use(cors({ origin: 'http://localhost:5173' }));   
    app.use(express.json());
+   app.use('/api/overview', overviewRouter);
+
 
    // 2) ROUTES
    app.use('/api/auth', authRouter);

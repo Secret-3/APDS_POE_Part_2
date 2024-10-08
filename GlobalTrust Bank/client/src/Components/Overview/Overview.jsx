@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { FiAlertCircle } from 'react-icons/fi'; // Using Feather icons from react-icons
-import './Overview.css'; // Import the new CSS file
+import { FiAlertCircle } from 'react-icons/fi';
+import './Overview.css';
 
 const Overview = () => {
   const [amount, setAmount] = useState('');
@@ -8,17 +8,53 @@ const Overview = () => {
   const [provider, setProvider] = useState('SWIFT');
   const [accountInfo, setAccountInfo] = useState('');
   const [swiftCode, setSwiftCode] = useState('');
-  
-  // Add new state variables for recipient details
+
   const [recipientAccountHolderName, setRecipientAccountHolderName] = useState('');
   const [recipientBankName, setRecipientBankName] = useState('');
   const [recipientAccountNumber, setRecipientAccountNumber] = useState('');
 
   const [showConfirmation, setShowConfirmation] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setShowConfirmation(true);
+    console.log('Submitting:', {
+      amount,
+      currency,
+      provider,
+      recipientAccountHolderName,
+      recipientBankName,
+      recipientAccountNumber,
+      swiftCode,
+    });
+    
+    try {
+      const response = await fetch('http://localhost:3000/api/overview/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount,
+          currency,
+          provider,
+          recipientAccountHolderName,
+          recipientBankName,
+          recipientAccountNumber,
+          swiftCode,
+        }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to submit data');
+      }
+  
+      const data = await response.json();
+      console.log('Data submitted successfully:', data);
+      setShowConfirmation(true);
+  
+    } catch (error) {
+      console.error('Error submitting data:', error);
+    }
   };
 
   return (
