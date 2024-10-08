@@ -8,6 +8,12 @@ const Overview = () => {
   const [provider, setProvider] = useState('SWIFT');
   const [accountInfo, setAccountInfo] = useState('');
   const [swiftCode, setSwiftCode] = useState('');
+  
+  // Add new state variables for recipient details
+  const [recipientAccountHolderName, setRecipientAccountHolderName] = useState('');
+  const [recipientBankName, setRecipientBankName] = useState('');
+  const [recipientAccountNumber, setRecipientAccountNumber] = useState('');
+
   const [showConfirmation, setShowConfirmation] = useState(false);
 
   const handleSubmit = (e) => {
@@ -76,12 +82,44 @@ const Overview = () => {
             </div>
 
             <div>
-              <label htmlFor="accountInfo" className="label">Account Information</label>
+              <label htmlFor="accountInfo" className="label">Enter the recipient's account information below:</label>
+            
+            </div>
+
+           
+
+            {/* Recipient Account Information Fields */}
+            <div>
+              <label htmlFor="recipientAccountHolderName" className="label">Recipient Account Holder Name</label>
               <input
                 type="text"
-                id="accountInfo"
-                value={accountInfo}
-                onChange={(e) => setAccountInfo(e.target.value)}
+                id="recipientAccountHolderName"
+                value={recipientAccountHolderName}
+                onChange={(e) => setRecipientAccountHolderName(e.target.value)}
+                className="input-field"
+                required
+              />
+            </div>
+
+            <div>
+              <label htmlFor="recipientBankName" className="label">Recipient Bank Name</label>
+              <input
+                type="text"
+                id="recipientBankName"
+                value={recipientBankName}
+                onChange={(e) => setRecipientBankName(e.target.value)}
+                className="input-field"
+                required
+              />
+            </div>
+
+            <div>
+              <label htmlFor="recipientAccountNumber" className="label">Recipient Bank Account Number</label>
+              <input
+                type="text"
+                id="recipientAccountNumber"
+                value={recipientAccountNumber}
+                onChange={(e) => setRecipientAccountNumber(e.target.value)}
                 className="input-field"
                 required
               />
@@ -111,6 +149,7 @@ const Overview = () => {
     </div>
   );
 };
+
 
 
 export default Overview;
