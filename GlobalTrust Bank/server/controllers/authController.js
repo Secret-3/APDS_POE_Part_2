@@ -4,7 +4,9 @@ const createError = require('../utils/appError');
 const bcrypt = require('bcryptjs');
 
 // Defined regex patterns
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Basic email regex
+//const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Basic email regex
+const nameRegex = /^[A-Za-z\s]+$/;
+const usernameRegex = /^[A-Za-z\s]+$/;
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+={}\[\]:;"'<>,.?~`-]).{8,}$/; // Password must have at least 8 characters, 1 upper, 1 lower, 1 digit, 1 special char
 const idNumberRegex = /^\d{13}$/; //The id number should contain exactly 13 digits
 const accountNumberRegex = /^\d{11}$/; //The account number should contain exactly 11 digits
