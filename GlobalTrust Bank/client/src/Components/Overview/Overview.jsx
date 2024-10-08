@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { message } from 'antd';
 import { FiAlertCircle } from 'react-icons/fi';
 import './Overview.css';
 
@@ -26,9 +27,9 @@ const Overview = () => {
       recipientAccountNumber,
       swiftCode,
     });
-    
+  
     try {
-      const response = await fetch('http://localhost:3000/api/overview/submit', {
+      const response = await fetch('https://localhost:3000/api/overview/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,15 +46,19 @@ const Overview = () => {
       });
   
       if (!response.ok) {
-        throw new Error('Failed to submit data');
+        // Extract error message from response
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to submit data');
       }
   
       const data = await response.json();
       console.log('Data submitted successfully:', data);
       setShowConfirmation(true);
+      message.success('Payment submitted successfully!'); // Success message
   
     } catch (error) {
       console.error('Error submitting data:', error);
+      message.error(error.message); // Display error message in pop-up
     }
   };
 

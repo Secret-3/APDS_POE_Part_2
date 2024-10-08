@@ -3,6 +3,7 @@ const overviewController = require('../controllers/overviewController');
 
 const router = express.Router();
 
-router.post('/submit', overviewController.submitOverview);
+
+router.post('/submit', overviewController.validateOverviewInput, overviewController.submitOverview);
 
 module.exports = router;
