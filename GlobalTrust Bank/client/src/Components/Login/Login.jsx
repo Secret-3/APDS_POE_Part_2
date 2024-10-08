@@ -19,7 +19,8 @@ const Login = () => {
     const { loginUser, loading, error } = useLogin();
 
     const [formValues, setFormValues] = useState({
-        email: '',
+        username: '',
+        accountNumber: '',
         password: '',
     });
 
@@ -35,6 +36,7 @@ const Login = () => {
         e.preventDefault();
         await loginUser(formValues);
     };
+
     return (
         <div className='loginPage flex'>
             <div className='container flex'>
@@ -55,34 +57,43 @@ const Login = () => {
 
                 <div className="formDiv flex">
                     <div className="headerDiv">
-                        <img src={logo} alt="Logo Image" className='logo' />
+                        <img src={logo} alt="Logo" />
                         <h3>Let Us Know You!</h3>
                     </div>
-                    <form action="" className='form grid' onSubmit={handleSubmit}>
+                    <form className='form grid' onSubmit={handleSubmit}>
+                        {/* Username Field */}
                         <div className="inputDiv">
-                            <label htmlFor="email">email</label>
+                            <label htmlFor="username">Username</label>
                             <div className="input flex">
                                 <FaUserShield className='icon' />
-                                <input type="text" id='email' placeholder='Enter email ' value={formValues.email} onChange={handleChange}/>
+                                <input type="text" id='username' placeholder='Enter Username' value={formValues.username} onChange={handleChange} required />
                             </div>
                         </div>
 
+                        {/* Account Number Field */}
+                        <div className="inputDiv">
+                            <label htmlFor="accountNumber">Account Number</label>
+                            <div className="input flex">
+                                <FaUserShield className='icon' />
+                                <input type="text" id='accountNumber' placeholder='Enter Account Number' value={formValues.accountNumber} onChange={handleChange} required />
+                            </div>
+                        </div>
+
+                        {/* Password Field */}
                         <div className="inputDiv">
                             <label htmlFor="password">Password</label>
                             <div className="input flex">
                                 <BsFillShieldLockFill className='icon' />
-                                <input type="password" id='password' placeholder='Enter Password' value={formValues.password} onChange={handleChange}/>
+                                <input type="password" id='password' placeholder='Enter Password' value={formValues.password} onChange={handleChange} required />
                             </div>
                         </div>
 
-                        <button type='submit' className='btn flex'>
-                            <span>Login</span>
+                        <button type='submit' className='btn flex' disabled={loading}>
+                            <span>{loading ? 'Logging in...' : 'Login'}</span>
                             <AiOutlineSwapRight className='icon' />
                         </button>
 
                         <a href="/overview">Overview</a>
-
-
 
                     </form>
                 </div>

@@ -10,6 +10,9 @@
 // Default styling and variables
 :root {
     --primaryColor: hsl(94, 55%, 56%);
+    --lightPurple: hsl(282, 21%, 63%);
+    --purple: hsl(281, 52%, 64%);
+    --darkPurple: hsl(281, 52%, 49%);
     --hoverColor: hsl(93, 75%, 76%);
     --paleGreen: hsl(96, 75%, 89%);
     --whiteColor: hsl(0, 0%, 100%);
@@ -17,6 +20,7 @@
     --greyText: hsl(0, 0%, 75%);
     --bgColor: hsl(113, 11%, 85%);
     --inputColor: hsl(330, 12%, 97%);
+
     --biggestFontSize: 2.5rem;
     --h1FontSize: 1.5rem;
     --h2FontSize: 1.25rem;
@@ -51,7 +55,8 @@ img, video {
 
 // Main login page
 .loginPage {
-    height: 100vh;
+    height: 120vh;
+    width: 110vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,8 +66,8 @@ img, video {
 }
 
 .container {
-    height: 75vh;
-    width: 70%;
+    height: 110vh;
+    width: 90%;
     display: flex;
     justify-content: flex-start; // Align items to start
     background: var(--whiteColor);
@@ -88,24 +93,24 @@ img, video {
         object-fit: cover;
     }
 
-    .textDiv {
-        position: relative;
-        z-index: 1;
-        color: var(--whiteColor);
-        text-align: center;
-        padding: 1rem;
+    // .textDiv {
+    //     position: relative;
+    //     z-index: 1;
+    //     color: var(--whiteColor);
+    //     text-align: center;
+    //     padding: 1rem;
 
-        .title {
-            font-size: 35px;
-            font-weight: 800;
-        }
+    //     .title {
+    //         font-size: 35px;
+    //         font-weight: 800;
+    //     }
 
-        p {
-            font-size: var(--normalFontSize);
-            font-weight: 400;
-            margin-top: 1rem;
-        }
-    }
+    //     p {
+    //         font-size: var(--normalFontSize);
+    //         font-weight: 400;
+    //         margin-top: 1rem;
+    //     }
+    //}
 
     .footerDiv {
         position: absolute;
@@ -126,14 +131,14 @@ img, video {
 
         .btn {
             background: var(--whiteColor);
-            color: var(--primaryColor);
+            color: var(--darkPurple);
             padding: .8rem 1.5rem;
             border-radius: 10px;
             font-weight: 500;
             transition: .3s ease;
 
             &:hover {
-                background: var(--hoverColor);
+                background: var(--lightPurple);
                 color: var(--blackColor);
             }
         }
@@ -154,8 +159,8 @@ img, video {
         margin-bottom: 2rem;
 
         img {
-            width: 60px; // Logo size
-            margin-bottom: 1rem; // Space between logo and heading
+            width: 110px; // Logo size
+            margin-bottom: 2rem; // Space between logo and heading
         }
 
         h3 {
@@ -206,7 +211,7 @@ img, video {
 
         .btn {
             padding: .8rem;
-            background: var(--primaryColor);
+            background: var(--lightPurple);
             border-radius: 10px;
             color: var(--whiteColor);
             display: flex;
@@ -217,7 +222,7 @@ img, video {
             transition: .3s ease;
 
             &:hover {
-                background: var(--hoverColor);
+                background: var(--purple);
                 color: var(--blackColor);
 
                 .icon {

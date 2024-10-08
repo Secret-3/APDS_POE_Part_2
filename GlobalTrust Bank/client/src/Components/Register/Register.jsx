@@ -18,8 +18,9 @@ const Register = () => {
     const { registerUser, loading, error } = useSignup();
 
     const [formValues, setFormValues] = useState({
-        email: '',
-        name: '',
+        fullName: '',
+        idNumber: '',
+        accountNumber: '',
         password: '',
         confirmPassword: '',
     });
@@ -38,7 +39,7 @@ const Register = () => {
     };
 
     return (
-        <div className='registerPage flex'>
+        <div className='loginPage flex'>
             <div className='container flex'>
                 <div className="imageDiv">
                     <img src={image} alt="Description of image" />
@@ -61,22 +62,44 @@ const Register = () => {
                     </div>
                     <form className='form grid' onSubmit={handleSubmit}>
                         {error && <p className="errorMessage">{error}</p>}
-                        <div className="inputDiv">
-                            <label htmlFor="email">Email</label>
-                            <div className="input flex">
-                                <MdMarkEmailRead className='icon' />
-                                <input type="text" id='email' placeholder='Enter Email' value={formValues.email} onChange={handleChange} required />
-                            </div>
-                        </div>
 
+                        {/* Full Name Field */}
                         <div className="inputDiv">
-                            <label htmlFor="name">Name</label> {/* Change 'Username' to 'Name' */}
+                            <label htmlFor="fullName">Full Name</label>
                             <div className="input flex">
                                 <FaUserShield className='icon' />
-                                <input type="text" id='name' placeholder='Enter Name' value={formValues.name} onChange={handleChange} required />
+                                <input type="text" id='fullName' placeholder='Enter Full Name' value={formValues.fullName} onChange={handleChange} required />
                             </div>
                         </div>
 
+                         {/* Username Field */}
+                         <div className="inputDiv">
+                            <label htmlFor="username">Username</label>
+                            <div className="input flex">
+                                <FaUserShield className='icon' />
+                                <input type="text" id='username' placeholder='Enter Username' value={formValues.username} onChange={handleChange} required />
+                            </div>
+                        </div>
+
+                        {/* ID Number Field */}
+                        <div className="inputDiv">
+                            <label htmlFor="idNumber">ID Number</label>
+                            <div className="input flex">
+                                <FaUserShield className='icon' />
+                                <input type="text" id='idNumber' placeholder='Enter ID Number' value={formValues.idNumber} onChange={handleChange} required />
+                            </div>
+                        </div>
+
+                        {/* Account Number Field */}
+                        <div className="inputDiv">
+                            <label htmlFor="accountNumber">Account Number</label>
+                            <div className="input flex">
+                                <FaUserShield className='icon' />
+                                <input type="text" id='accountNumber' placeholder='Enter Account Number' value={formValues.accountNumber} onChange={handleChange} required />
+                            </div>
+                        </div>
+
+                        {/* Password Field */}
                         <div className="inputDiv">
                             <label htmlFor="password">Password</label>
                             <div className="input flex">
@@ -85,6 +108,7 @@ const Register = () => {
                             </div>
                         </div>
 
+                        {/* Confirm Password Field */}
                         <div className="inputDiv">
                             <label htmlFor="confirmPassword">Confirm Password</label>
                             <div className="input flex">
