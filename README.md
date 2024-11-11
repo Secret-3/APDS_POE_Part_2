@@ -8,6 +8,10 @@ https://www.youtube.com/watch?v=fmwCxnRlEa0
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Introduction
+<<<<<<< Updated upstream
+=======
+!![alt text](image-1.png)![alt text](image.png)()
+>>>>>>> Stashed changes
 
 GlobalTrust Bank offers a state-of-the-art international payment portal designed to meet the evolving needs of customers in a globalized financial landscape. As international transactions become increasingly common, the demand for a reliable, efficient, and secure payment platform is paramount. Our portal empowers customers to manage their international payments conveniently and securely.
 
@@ -314,5 +318,25 @@ Kime, C., 2023. How to Prevent SQL Injection: 5 Key Prevention Methods. [Online]
 Manico, J. & Detlefsen, A., 2015. Iron-Clad Java: Building Secure Web Applications. 1st ed. New York: Mcgraw-Hill Education.
 Rapid7, 2023. Man-in-the-Middle (MITM) Attacks: Techniques and Prevention. [Online] Available at: https://www.rapid7.com/fundamentals/man-in-the-middle-attacks/
 [Accessed 6 October 2024].
+
+
+CI/CD Pipeline Project With CircleCI | Hands On | DevOps Shack [Online]
+Availble at: https://www.youtube.com/watch?v=9U55bShQIgQ
+[Accessed 8 October 2024]
+
+
+Sonarqube Complete Tutorial 2023 | DevOps Shack [Online]
+Available at: https://www.youtube.com/watch?v=r2UVTDpIUj8
+[Accessed 8 October 2024]
+
+How To Use Postman In Visual Studio Code (VS Code) For API Testing | Bug Shop [Online]
+Available at: https://www.youtube.com/watch?v=Sn-9tp9X3kg
+[Accessed 31 October 2024]
+
+
+Step-by-step guide to running newman tests | Alex Rodriguez | 2023 [Online]
+Available at:https://medium.com/@alex_rodriguez_soto/step-by-step-guide-to-running-newman-tests-8f990a639343#9bd1
+[Accessed 10 Novemeber 2024]
+
 
 
