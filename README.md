@@ -232,10 +232,7 @@ In addition to the targeted defences against specific cyberattacks, further secu
 3. **All Traffic Served Over SSL**:
    - **How it works**: Every data exchange between users, admins, and the portal is encrypted with SSL, ensuring that sensitive information, such as login credentials and payment data, is protected in transit.
    - **Why It Works**: SSL encryption guarantees that data remains confidential and tamper-proof during transmission. This ensures that even if an attacker intercepts the traffic, the encrypted data cannot be read or altered, providing essential protection for sensitive interactions on the portal.
-
----
-**
-By combining these defences, GlobalTrust Bank’s international payment portal is fortified against a wide range of cyberattacks. With robust encryption, meticulous input validation, secure password storage, and stringent access controls, both user and admin data are well-protected. We are committed to upholding these high security standards, ensuring continuous monitoring and updates to keep the portal’s defences strong in an evolving cyber landscape.**
+By combining these defences, GlobalTrust Bank’s international payment portal is fortified against a wide range of cyberattacks. With robust encryption, meticulous input validation, secure password storage, and stringent access controls, user and admin data are well-protected. We are committed to upholding these high-security standards, ensuring continuous monitoring and updates to keep the portal’s defences strong in an evolving cyber landscape.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Frequently Asked Questions
 
