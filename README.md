@@ -159,36 +159,48 @@ Usability: The user interface must be intuitive and easy to navigate.
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## Utilization of GitHub Workflows Using CircleCI and SonarCloud for DevSecOps
 
-DevSecOps Integration
-In the development of the GlobalTrust Bank international payment portal, the integration of GitHub workflows using CircleCI and SonarCloud has played a pivotal role in implementing DevSecOps practices. This approach emphasizes the importance of security throughout the software development lifecycle, ensuring that security is not merely an afterthought but an integral part of the development process.
+## Integrating GitHub Workflows with CircleCI and SonarCloud for DevSecOps
 
-CircleCI for Continuous Integration and Deployment
-CircleCI automates our CI/CD pipelines, allowing for rapid and reliable software delivery. Key benefits include:
+At GlobalTrust Bank, our approach to developing the international payment portal centres on a strong DevSecOps foundation. Integrating GitHub workflows with CircleCI and SonarCloud has been key in making security an essential part of our software development lifecycle—right from the start, rather than an afterthought.
 
-Automated Testing: CircleCI facilitates the automatic execution of unit tests, integration tests, and end-to-end tests on every code push. This ensures that any security vulnerabilities or defects are identified early in the development cycle. By enforcing code quality standards, we reduce the risk of introducing bugs that could compromise system security.
+### CircleCI for Smooth CI/CD Pipelines
 
-Build Automation: Each time code is pushed to the repository, CircleCI triggers builds, ensuring that the application is consistently in a deployable state. This automation not only speeds up the deployment process but also helps maintain the integrity of the application, minimizing human error.
+CircleCI drives our continuous integration and deployment, which allows us to release software quickly without compromising on quality. Here’s how CircleCI helps:
 
-Environment Consistency: CircleCI allows us to define and manage environment configurations, ensuring that our code behaves consistently across different environments (development, testing, and production). This consistency is crucial for security, as it helps prevent discrepancies that could lead to vulnerabilities.
+1. **Automated Testing**: CircleCI automatically runs our unit, integration, and end-to-end tests whenever we push code. This ensures that any potential issues, including security vulnerabilities, are caught as early as possible, helping us maintain strong quality standards.
 
-SonarCloud for Continuous Code Quality and Security Analysis
-SonarCloud is integrated into our GitHub workflows to enhance code quality and security through continuous analysis. Its key contributions include:
+2. **Build Automation**: Every time we push code, CircleCI triggers a new build. This makes sure that our application is always in a deployable state, speeding up the release process and reducing the chance for errors.
 
-Code Quality Assessment: SonarCloud provides automated analysis of the codebase to identify potential issues such as bugs, vulnerabilities, and code smells. By maintaining high code quality standards, we ensure that the software is less prone to security flaws.
+3. **Environment Consistency**: By managing our environment configurations, CircleCI ensures consistency between development, testing, and production. Having a consistent environment across all stages is essential for security, as it reduces unexpected issues that can create vulnerabilities.
 
-Vulnerability Detection: The platform actively scans for known security vulnerabilities and provides developers with detailed insights and recommendations for remediation. This proactive approach helps us address security concerns before they reach production.
+### SonarCloud for Continuous Code Quality and Security
 
-Technical Debt Management: SonarCloud allows us to track technical debt within the codebase, enabling the team to prioritize and address areas of concern over time. This focus on maintaining a healthy codebase reduces the likelihood of security vulnerabilities arising from neglected code.
+SonarCloud is integrated into our GitHub workflows to monitor the quality and security of our code continuously. It plays a big role in keeping our codebase secure and healthy by:
 
-Integration with Pull Requests: By integrating SonarCloud with GitHub pull requests, developers receive immediate feedback on code quality and security issues as they work. This feedback loop fosters a culture of security awareness among team members, encouraging best practices and reducing the chances of vulnerabilities being introduced into the codebase.
+1. **Quality Checks**: SonarCloud continuously analyses the code for bugs, security issues, and areas that could be improved. This allows us to fix problems quickly, reducing the chance of any flaws that could pose security risks.
 
-Continuous Improvement and Collaboration
-The integration of CircleCI and SonarCloud not only strengthens our security posture but also promotes a culture of collaboration and continuous improvement within the development team. By automating repetitive tasks and providing real-time feedback on code quality and security, developers can focus more on writing secure, high-quality code. This synergy between automation and security aligns with the core principles of DevSecOps, ensuring that security is a shared responsibility across the entire development team.
+2. **Vulnerability Scanning**: SonarCloud’s scanning tools actively look for known vulnerabilities and provide developers with suggestions to address them. This means we can fix issues long before they reach production.
 
-By utilizing GitHub workflows with CircleCI and SonarCloud, GlobalTrust Bank enhances its DevSecOps practices, ensuring that security is integrated into every phase of the software development lifecycle. This proactive approach not only helps in mitigating security risks but also supports the overall goal of delivering a robust, secure, and efficient international payment portal to our customers.
+3. **Managing Technical Debt**: SonarCloud helps us track technical debt, so we can prioritise improvements and address them over time. This way, we keep our codebase in good shape, reducing the chance that neglected code will become a security issue.
 
+4. **Pull Request Feedback**: By linking SonarCloud with GitHub pull requests, we give developers real-time feedback on code quality and security. This helps foster a proactive approach to security across the team, creating a shared responsibility for keeping the code secure.
+
+### Payment Portal Workflow for Employees
+
+For GlobalTrust Bank employees, the payment portal process is streamlined and secure. Employees are pre-registered when they’re hired, so there’s no need to set up individual accounts. Once logged in, they can verify transactions and send them to SWIFT for processing. The steps are:
+
+- **Verifying Information**: Employees first check the payee’s details to make sure everything is accurate, including the SWIFT code.
+- **Transaction Approval**: After verifying, they click a “Verified” button next to each transaction entry to confirm accuracy.
+- **Submitting to SWIFT**: Finally, employees complete the process by clicking “Submit to SWIFT,” ensuring that the transaction is correctly forwarded.
+
+### Continuous Improvement and Team Collaboration
+
+By automating repetitive tasks and giving immediate feedback, the combination of CircleCI and SonarCloud enables our developers to focus on writing secure, high-quality code. This setup aligns with DevSecOps best practices, creating a culture where security is everyone’s responsibility, not just something tacked on at the end.
+
+### In Summary
+
+Bringing together GitHub workflows with CircleCI and SonarCloud strengthens our DevSecOps approach, making security a built-in part of every phase in the development process. This integration not only helps GlobalTrust Bank deliver a secure, efficient payment portal for our customers but also provides a reliable and straightforward workflow for our employees.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Security Implementations Against Cyberattacks (For Both Admins and Users)
