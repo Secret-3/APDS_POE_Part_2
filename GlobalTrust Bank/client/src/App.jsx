@@ -3,6 +3,7 @@ import Overview from './Components/Overview/Overview';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 
+
 // Import React Router components
 import {
   createBrowserRouter,
@@ -27,17 +28,19 @@ const router = createBrowserRouter([
     path: '/overview',
     element: <Overview />  // Use direct component
   },
+  
 ]);
 
 function App() {
   return (
     <div>
-    <RouterProvider router={router} />  // Use RouterProvider for routing
+      <RouterProvider router={router} />  // Use RouterProvider for routing
     </div>
-  )
+  );
 }
 
 export default App;
+
 
 
 /*import './App.css';
