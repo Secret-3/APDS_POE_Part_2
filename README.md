@@ -175,62 +175,67 @@ By utilizing GitHub workflows with CircleCI and SonarCloud, GlobalTrust Bank enh
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## Security Implementations against Cyberattacks
+## Security Implementations Against Cyberattacks (For Both Admins and Users)
 
-The implementations listed to protect the GlobalTrust Bank international payment portal from various cyberattacks are well-rounded and effective in addressing common vulnerabilities.
+To safeguard the GlobalTrust Bank international payment portal, a multi-layered defence strategy has been implemented to address the most common and damaging types of cyberattacks. These comprehensive security measures aim to protect both admin and user accounts, ensuring the portal remains reliable, confidential, and secure.
 
-1. Session Hijacking
-Attack Description: Session hijacking occurs when an attacker steals a user's session ID to gain unauthorized access to the user's account without needing login credentials.
-Prevention: HTTPS & SSL (Valid Certificate and Key):
-Effectiveness: HTTPS encrypts all communication between the user’s browser and the server, ensuring that sensitive session information is protected during transmission. SSL certificates authenticate the server and establish encrypted connections, preventing attackers from intercepting or tampering with session cookies or other sensitive data.
-Why It Works: Even if an attacker attempts to intercept the traffic, the encrypted session data is unreadable, protecting it from being hijacked.
+1. **Session Hijacking**:
+   - **Attack Description**: Session hijacking occurs when an attacker intercepts or steals a session ID, allowing them to gain unauthorised access to a user’s session without needing login credentials.
+   - **Prevention Method**: All traffic on the portal is encrypted using HTTPS and SSL (Secure Sockets Layer) with a valid certificate and key.
+   - **Effectiveness**: HTTPS creates a secure, encrypted channel for data transmission, ensuring that session cookies, tokens, and other sensitive data remain private between the user’s browser and the server.
+   - **Why It Works**: By encrypting session data, we prevent attackers from deciphering or altering intercepted information. Even if an attacker manages to intercept traffic, the data is rendered unreadable due to the encryption protocols, mitigating session hijacking risks.
 
-2. Clickjacking
-Attack Description: Clickjacking tricks users into clicking on something different from what they perceive, often through invisible or disguised UI elements, leading them to unknowingly execute malicious actions.
-Prevention: X-Frame Options HTTP Header:
-Effectiveness: The X-Frame-Options HTTP header prevents the portal from being embedded into an iframe on other websites, which is a common method used in clickjacking attacks.
-Why It Works: By denying the ability to embed the site, this header ensures that attackers can’t overlay hidden buttons or trick users into interacting with invisible elements that could execute malicious commands.
+2. **Clickjacking**:
+   - **Attack Description**: Clickjacking occurs when an attacker tricks users into clicking on something different from what they perceive, typically through hidden or disguised UI elements, to execute unwanted actions.
+   - **Prevention Method**: The portal implements the `X-Frame-Options` HTTP header, preventing embedding within external iframes.
+   - **Effectiveness**: By setting the `X-Frame-Options` header to `DENY`, the portal blocks itself from being displayed within an iframe on any website, which is a common method attackers use to deceive users with hidden clickable elements.
+   - **Why It Works**: This measure prevents attackers from overlaying invisible elements or other deceptive content on top of our interface, protecting users from unintentionally interacting with malicious actions.
 
-3. SQL Injection Attacks
-Attack Description: SQL injection occurs when an attacker inserts or manipulates SQL queries through user input fields to access, modify, or delete data from the database.
-Prevention: User Input Validation & Sanitation (express-validator):
-Effectiveness: Input validation ensures that only expected and correctly formatted data is accepted. Express-validator sanitizes inputs by stripping out potentially harmful characters and patterns before processing them.
-Why It Works: This blocks malicious SQL code from being injected into database queries, effectively preventing unauthorized access or manipulation of the database.
+3. **SQL Injection Attacks**:
+   - **Attack Description**: SQL injection allows attackers to insert malicious SQL commands through user input fields, potentially giving them the ability to access, modify, or delete database data.
+   - **Prevention Method**: Rigorous input validation and sanitisation are employed, using tools such as `express-validator` to scrutinise all incoming data.
+   - **Effectiveness**: Input validation restricts the types of data that can be submitted, allowing only expected values and formats. Sanitisation strips away potentially harmful characters and patterns before inputs are processed by the database.
+   - **Why It Works**: This defence prevents malicious SQL code from infiltrating database queries, effectively blocking unauthorised access or alterations to sensitive data and preserving the database’s integrity.
 
-4. Cross-Site Scripting (XSS)
-Attack Description: XSS allows attackers to inject malicious scripts into web pages viewed by other users, potentially stealing cookies, session information, or executing unauthorized actions.
-Prevention: Input Validation & Sanitation (express-validator and validator.js), RegEx:
-Effectiveness: Input validation and sanitation ensure that any potentially dangerous input, such as scripts, is filtered out before being processed by the system. Validator.js and regular expressions (RegEx) are used to further tighten input control by ensuring that only valid data formats are accepted.
-Why It Works: These measures prevent the execution of unauthorized scripts, protecting users from inadvertently triggering malicious code on the portal.
+4. **Cross-Site Scripting (XSS)**:
+   - **Attack Description**: XSS attacks involve injecting malicious scripts into web pages viewed by other users. These scripts can execute actions, steal cookies, or compromise user session data.
+   - **Prevention Method**: We enforce strict input validation and sanitisation using libraries like `express-validator` and `validator.js`, in addition to utilising RegEx (Regular Expressions) for input pattern matching.
+   - **Effectiveness**: By carefully filtering out potentially dangerous input and only allowing content that matches safe patterns, this approach prevents harmful scripts from being executed.
+   - **Why It Works**: Filtering user input at this level effectively eliminates the possibility of malicious scripts running within the browser, keeping user data safe from unintended exposure and ensuring the portal displays only trusted content.
 
-5. Man-in-the-Middle (MITM) Attacks
-Attack Description: MITM attacks occur when an attacker intercepts communication between two parties, potentially altering or stealing transmitted data.
-Prevention: HTTPS Encryption, SSL (Valid Certificate and Key):
-Effectiveness: HTTPS and SSL encrypt all communication, ensuring that even if an attacker intercepts the data, they cannot read or alter it.
-Why It Works: Encryption scrambles the data, making it incomprehensible to any unauthorized party attempting to listen in on the communication.
+5. **Man-in-the-Middle (MITM) Attacks**:
+   - **Attack Description**: A MITM attack occurs when an attacker intercepts and potentially alters communication between two parties, often with the intent to steal or modify transmitted data.
+   - **Prevention Method**: We rely on HTTPS encryption and SSL, secured with a valid certificate and key, to create a private and authenticated channel.
+   - **Effectiveness**: HTTPS and SSL ensure that any data transmitted is encrypted, meaning that even if communication is intercepted, it remains unreadable and tamper-proof.
+   - **Why It Works**: The encryption protects all data, including login credentials and payment information, from being deciphered or altered by unauthorised parties. This approach is essential for maintaining both user privacy and data integrity.
 
-6. Distributed Denial-of-Service (DDoS) Attacks
-Attack Description: DDoS attacks overwhelm a server with excessive traffic, causing it to slow down or crash, disrupting access for legitimate users.
-Prevention: Rate Limiting, Whitelisting:
-Effectiveness: Rate limiting restricts the number of requests a user can make to the server within a specific time frame, preventing bots or malicious actors from flooding the system with traffic. Whitelisting allows only trusted IP addresses or users to access certain areas of the system.
-Why It Works: Rate limiting helps mitigate the impact of a DDoS attack by controlling traffic, while whitelisting ensures only authorized users are granted access, reducing the risk of attacks from unknown sources.
+6. **Distributed Denial-of-Service (DDoS) Attacks**:
+   - **Attack Description**: DDoS attacks flood the server with excessive traffic, intending to slow down or crash the site, which can disrupt access for legitimate users.
+   - **Prevention Method**: We implement rate limiting and IP whitelisting measures.
+   - **Effectiveness**: Rate limiting restricts the number of requests that can be made by a single IP address within a certain timeframe, preventing excessive traffic from any one source. IP whitelisting allows only trusted addresses to access restricted areas of the system, adding a further layer of control.
+   - **Why It Works**: By controlling the flow of incoming requests, we can limit the impact of a DDoS attack, while IP whitelisting ensures that sensitive areas of the portal are only accessible to authorised users, minimising risks from external sources.
 
-Additional Security Measures:
-Password Security (Hashing and Salting):
+---
 
-Effectiveness: Hashing transforms a password into a fixed-length, unreadable string. Salting adds an additional unique value to the password before hashing, ensuring that even identical passwords have unique hashes.
-Why It Works: This prevents attackers from deciphering passwords even if they manage to gain access to the password database. It also protects against rainbow table attacks, where precomputed hash values are used to reverse-engineer passwords.
-Whitelisting with RegEx Patterns:
+## Additional Security Measures
 
-Effectiveness: Whitelisting ensures that only known, valid input formats are accepted by the system. Regular expressions (RegEx) are used to define acceptable patterns for various inputs (e.g., email addresses, account numbers).
-Why It Works: This approach drastically reduces the attack surface by rejecting any input that does not strictly conform to expected formats, making it harder for attackers to inject malicious code.
-All Traffic Served Over SSL:
+In addition to the targeted defences against specific cyberattacks, further security measures have been implemented to enhance the overall resilience and integrity of the portal:
 
-Effectiveness: Serving all traffic over SSL guarantees that data transmitted between users and the portal is encrypted, ensuring confidentiality and integrity.
-Why It Works: Even if an attacker manages to intercept traffic, they won’t be able to read or tamper with the encrypted data, protecting sensitive information like user credentials and payment details.
+1. **Password Security (Hashing and Salting)**:
+   - **How it works**: All passwords are secured using a combination of hashing and salting. Hashing transforms the password into a fixed-length, unreadable string, and salting adds a unique value to the password before hashing.
+   - **Why It Works**: This approach ensures that even if an attacker gains access to stored password data, the hashes remain unreadable and cannot be directly reversed. Salting further strengthens this by making each hashed password unique, protecting against rainbow table attacks (where precomputed hash values are used to reverse-engineer passwords).
 
-These layered security measures are highly effective in defending the GlobalTrust Bank international payment portal from a wide range of attacks. By implementing encryption, input validation, rate limiting, and secure password storage, the system is better equipped to maintain the confidentiality, integrity, and availability of both user data and payment transactions.
+2. **Whitelisting with RegEx Patterns**:
+   - **How it works**: Only inputs matching specific, pre-defined patterns (such as valid email addresses or account numbers) are accepted. Regular expressions are used to specify these patterns, which helps limit inputs to expected values.
+   - **Why It Works**: This ensures that only safe, validated data enters the system, which drastically reduces the potential for malicious code injections. By strictly controlling acceptable input formats, we minimise the risk of unexpected behaviour in the system.
 
+3. **All Traffic Served Over SSL**:
+   - **How it works**: Every data exchange between users, admins, and the portal is encrypted with SSL, ensuring that sensitive information, such as login credentials and payment data, is protected in transit.
+   - **Why It Works**: SSL encryption guarantees that data remains confidential and tamper-proof during transmission. This ensures that even if an attacker intercepts the traffic, the encrypted data cannot be read or altered, providing essential protection for sensitive interactions on the portal.
+
+---
+
+By combining these defences, GlobalTrust Bank’s international payment portal is fortified against a wide range of cyberattacks. With robust encryption, meticulous input validation, secure password storage, and stringent access controls, both user and admin data are well-protected. We are committed to upholding these high security standards, ensuring continuous monitoring and updates to keep the portal’s defences strong in an evolving cyber landscape.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Frequently Asked Questions
 
