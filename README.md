@@ -102,36 +102,52 @@ Open a new terminal and navigate to the server folder and start the server appli
    ```
 Once both the client and server are running, the frontend will communicate with the backend.
 
-## Usage
-1. Registration: 
-   - Navigate to the registration page in your browser.
-   - Fill in your full name, ID number, account number, and password. This information will be securely stored in the database.
+Here's the revised **Usage** section with the new information for the bank employees included:
 
-2. Login:
-   - After registering, navigate to the login page.
+---
+
+## Usage
+
+1. **Registration**:
+   - **For Users**: Navigate to the registration page in your browser. Fill in your full name, ID number, account number, and password. This information will be securely stored in the database.
+   - **For Employees**: Employees of the bank are pre-registered on the portal when they join the bank, so no registration process is necessary for them. They simply need to log in to access and manage transactions.
+
+2. **Login**:
+   - After registering (for users) or for pre-registered employees, navigate to the login page.
    - Enter your username, account number, and password to log in.
 
-3. Making Payments:
-   - Once logged in, you will have the option to enter the payment amount, select the relevant currency, and choose a payment provider which will be SWIFT).
+3. **Making Payments** (For Users):
+   - Once logged in, you will have the option to enter the payment amount, select the relevant currency, and choose a payment provider (e.g., SWIFT).
    - Fill in the required account information and SWIFT code for the transaction.
-   - Click on Pay Now to finalize the payment process. 
+   - Click on **Pay Now** to finalise the payment process.
 
-Stopping the Servers
+4. **Transaction Verification** (For Employees):
+   - After logging in, employees can view transactions that require verification and forwarding to SWIFT for payment.
+   - Check the payee's account information and ensure the SWIFT code is correct.
+   - To complete a transaction, click the **Verified** button next to each entry.
+   - Once all entries are verified, click **Submit to SWIFT** to forward the transactions for final processing. This action completes the employee’s role in the payment process.
 
-To stop the servers, simply return to the terminal windows running the server and client and press `Ctrl + C` in each window.
+5. **Stopping the Servers**:
+   - To stop the servers, return to the terminal windows running the server and client, and press `Ctrl + C` in each window.
 
-Troubleshooting
+- Troubleshooting
 - If you encounter issues with missing dependencies or errors during startup, ensure that you have installed all required packages in both the client and server directories.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Functional Requirements
 
-Users must register with their full name, ID number, account number, and password.
-Users must log in using their username (email), account number, and password.
-The portal should allow users to enter the amount, choose the currency, and select a payment provider.
-Users must provide the recipient's account information and SWIFT code.
-The system should store transaction data securely in the database.
+### User Functional Requirements
+- Users must register with their full name, ID number, account number, and password.
+- Users must log in using their username (email), account number, and password.
+- The portal should allow users to enter the amount, choose the currency, and select a payment provider.
+- Users must provide the recipient's account information and SWIFT code.
+- The system should securely store transaction data in the database.
 
+### Admin Functional Requirements
+- Employees of the bank are pre-registered on the portal upon employment, with no registration required.
+- Employees must log on to the system to review transactions, verify payee account information, and ensure the SWIFT code is correct.
+- Employees complete transaction verification by clicking a “Verified” button next to each entry.
+- After verifying all necessary details, employees submit transactions to SWIFT by clicking the “Submit to SWIFT” button, which finalises the transaction process within the portal.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Non-Functional Requirements
