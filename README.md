@@ -79,8 +79,8 @@ Installing Dependencies
 2. Next, navigate to the server directory and install the required dependencies:
    ```
    cd ..
-   cd server
-   npm install
+   cd into server
+   run "node index.js"
    ```
    
 4. Run the Client:
@@ -89,8 +89,9 @@ Once the dependencies are installed, go back to the client folder:
 
 ```
 cd client
-   npm run dev
+   run "yarn dev"
    ```
+
 
 This will start the frontend in development mode. It should provide a URL where you can access the frontend, usually something like http://localhost:3000 or http://localhost:5173.
 
