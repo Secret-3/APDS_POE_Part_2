@@ -1,118 +1,82 @@
+// C:\Users\Sauraav\Desktop\new_poe\GlobalTrust Bank\client\src\App.jsx
+
+import Sidebar from './Components/AdminDashboard/Sidebar/Sidebar';
+import RightSide from './Components/AdminDashboard/RigtSide/RightSide';
 import './App.css';
 import Overview from './Components/Overview/Overview';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
+import MainDash from './Components/AdminDashboard/MainDash/MainDash';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 
+// Protected Route Component defined in the same file
+const ProtectedRoute = ({ children, adminRequired = false }) => {
+  const { isAuthenticated, userData } = useAuth();
 
-// Import React Router components
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from 'react-router-dom';
+  if (!isAuthenticated) {
+    return <Navigate to="/login" />;
+  }
 
-// Create a router
+  if (adminRequired && userData?.role !== 'admin') {
+    return <Navigate to="/user-dashboard" />;
+  }
+
+  return children;
+};
+
+// Create router
 const router = createBrowserRouter([
   {
     path: '/login',
-    element: <Login />  // Use direct component
+    element: <Login />
   },
   {
     path: '/',
-    element: <Login />  // Use direct component
+    element: <Navigate to="/login" />
   },
   {
     path: '/register',
-    element: <Register />  // Use direct component
+    element: <Register />
   },
   {
     path: '/overview',
-    element: <Overview />  // Use direct component
+    element: (
+      <ProtectedRoute>
+        <Overview />
+      </ProtectedRoute>
+    )
   },
-  
+  {
+    path: '/admin-dashboard',
+    element: (
+      <ProtectedRoute adminRequired>
+        <div className="App">
+          <div className="AppGlass">
+            <Sidebar />
+            <MainDash />
+            <RightSide />
+          </div>
+        </div>
+      </ProtectedRoute>
+    )
+  },
+  {
+    path: '/user-dashboard',
+    element: (
+      <ProtectedRoute>
+        <Overview />
+      </ProtectedRoute>
+    )
+  }
 ]);
 
 function App() {
   return (
-    <div>
-      <RouterProvider router={router} />  // Use RouterProvider for routing
-    </div>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   );
 }
 
 export default App;
-
-
-
-/*import './App.css';
-import Overview from '../Components/Overview/Overview';
-import Login from '../Components/Login/Login';
-import Register from '../Components/Register/Register';
-
-//Impact React react 
-import{
-  createBrowserRouter,
-  RouterProvider,
-} from 'react-router-dom'
-
-//Letcs create a router
-const router = createBrowserRouter([
-  {
-    path: '/login',
-    element: <div><Login/></div>
-  },
-  {
-    path: '/register',
-    element: <div><Register/></div>
-  },
-  {
-    path: '/overview',
-    element: <div><Overview/></div>
-  },
-
-])
-function App(){
-  return(
-    <div>
-      <Overview/>
-      <Login/>
-      <Register/>
-    </div>
-  )
-}
-
-export default App
-/*import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App*/

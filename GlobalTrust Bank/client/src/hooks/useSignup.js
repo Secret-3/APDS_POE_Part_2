@@ -10,7 +10,9 @@ const useSignup = () => {
   const registerUser = async (values) => {
     if (values.password !== values.confirmPassword) {
       console.error('Passwords do not match');
-      return setError('Passwords do not match');
+      setError('Passwords do not match');
+      message.error('Passwords do not match');
+      return;
     }
 
     try {
@@ -23,14 +25,20 @@ const useSignup = () => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          fullName: values.fullName,
+          username: values.username,
+          idNumber: values.idNumber,
+          accountNumber: values.accountNumber,
+          password: values.password,
+        }),
       });
 
       console.log('Response received', res);
 
       if (!res.ok) {
-        console.error('Failed response', res.status, res.statusText);
         const errorData = await res.json();
+        console.error('Failed response', res.status, errorData.message);
         throw new Error(errorData.message || 'Registration Failed');
       }
       
@@ -40,6 +48,7 @@ const useSignup = () => {
       message.success(data.message);
       login(data.token, data.user);
 
+      return data;
     } catch (error) {
       console.error('Error occurred during registration', error);
       setError(error.message || 'An error occurred');

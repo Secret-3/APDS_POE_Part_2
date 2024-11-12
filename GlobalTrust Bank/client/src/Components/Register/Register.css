@@ -1,0 +1,222 @@
+/* Register.css */
+.registerPage {
+    width: 100vw;
+    height: 100vh;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.registerPage .container {
+    width: 100%;
+    max-width: 1200px;
+    height: 90vh; /* Changed from min-height */
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    overflow: hidden;
+}
+
+.registerPage .imageDiv {
+    flex: 1;
+    background: #2c3e50;
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+
+.registerPage .imageDiv img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+}
+
+.registerPage .textDiv {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.registerPage .textDiv h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.registerPage .textDiv p {
+    font-size: 1.1rem;
+}
+
+.registerPage .footerDiv {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.registerPage .formDiv {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden; /* Ensure no overflow at this level */
+}
+
+.registerPage .headerDiv {
+    padding: 2rem 2rem 1rem 2rem;
+    text-align: center;
+}
+
+.registerPage .headerDiv img {
+    width: 120px;
+    margin-bottom: 1rem;
+}
+
+.registerPage .headerDiv h3 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+.registerPage .formScrollContainer {
+    flex: 1;
+    overflow-y: scroll; /* Changed from auto to always show scrollbar */
+    padding: 0 2rem 2rem 2rem;
+    margin-right: 2px; /* Add margin for scrollbar */
+}
+.registerPage .formScrollContainer::-webkit-scrollbar {
+    width: 8px; /* Slightly wider scrollbar */
+}
+.registerPage .formScrollContainer::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.registerPage .formScrollContainer::-webkit-scrollbar-thumb {
+    background: #2c3e50;
+    border-radius: 4px;
+}
+
+.registerPage .formScrollContainer::-webkit-scrollbar-thumb:hover {
+    background: #34495e;
+}
+
+.registerPage form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1rem 0.5rem; /* Added padding */
+}
+.registerPage .inputDiv {
+    margin-bottom: 0.5rem; /* Added margin bottom */
+}
+
+
+.registerPage .inputDiv label {
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.registerPage .input {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+}
+
+.registerPage .input input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0 0.5rem;
+    font-size: 1rem;
+}
+
+.registerPage .icon {
+    color: #788097;
+    margin: 0 0.5rem;
+}
+
+.registerPage .btn {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.registerPage .footerDiv .btn {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    min-width: 150px;
+}
+
+.registerPage .footerDiv .btn:hover {
+    background: white;
+    color: #2c3e50;
+}
+
+.registerPage .submitBtn {
+    background: #2c3e50;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.registerPage .submitBtn:hover {
+    background: #34495e;
+}
+
+.registerPage .errorMessage {
+    background: #e74c3c;
+    color: white;
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+@media screen and (max-width: 968px) {
+    .registerPage .container {
+        height: 95vh; /* Increased height on smaller screens */
+    }
+    
+    .registerPage .imageDiv {
+        height: 250px; /* Reduced height of image div */
+    }
+    
+    .registerPage .formScrollContainer {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .registerPage .container {
+        height: 98vh; /* Even more height on mobile */
+    }
+    
+    .registerPage {
+        padding: 0.5rem; /* Reduced padding */
+    }
+    
+    .registerPage .formScrollContainer {
+        padding: 0 1rem 1rem 1rem;
+    }
+}

@@ -1,42 +1,269 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #34495e;
+  --accent-color: #3498db;
+  --text-color: #2c3e50;
+  --background-color: #f5f5f5;
+  --white: #ffffff;
+  --error-color: #e74c3c;
+  --success-color: #2ecc71;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.loginPage {
+  width: 100vw;
+  height: 100vh;
+  background: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 600px;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  display: flex;
+  overflow: hidden;
+}
+
+.imageDiv {
+  flex: 1;
+  background: var(--primary-color);
+  position: relative;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--white);
+}
+
+.imageDiv img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+}
+
+.textDiv {
+  position: relative;
+  z-index: 2;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.textDiv h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.textDiv p {
+  font-size: 1.1rem;
+}
+
+.footerDiv {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.formDiv {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.headerDiv {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.headerDiv img {
+  width: 120px;
+  margin-bottom: 1rem;
+}
+
+.headerDiv h3 {
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputDiv label {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0 0.5rem;
+  font-size: 1rem;
+  color: #2c3e50; /* Add this line for text color */
+}
+
+/* Also add styles for placeholder text */
+.input input::placeholder {
+  color: #999;
+  opacity: 0.7;
+}
+
+.icon {
+  color: var(--text-color);
+  margin: 0 0.5rem;
+}
+
+.btn {
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.login-btn {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.login-btn:hover {
+  background: var(--secondary-color);
+}
+
+.register-btn {
+  background: var(--accent-color);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+}
+
+.register-btn:hover {
+  background: #2980b9;
+}
+
+.forgotPassword {
+  text-align: center;
+}
+
+.forgotPassword a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.forgotPassword a:hover {
+  text-decoration: underline;
+}
+
+.error-popup {
+  background: var(--error-color);
+  color: var(--white);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 968px) {
+  .container {
+      flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .imageDiv {
+      height: 300px;
+  }
+  
+  .formDiv {
+      padding: 2rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media screen and (max-width: 480px) {
+  .loginPage {
+      padding: 1rem;
+  }
+  
+  .formDiv {
+      padding: 1.5rem;
+  }
+  
+  .textDiv h2 {
+      font-size: 2rem;
   }
 }
-
-.card {
-  padding: 2em;
+.footerDiv {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
 }
 
-.read-the-docs {
-  color: #888;
+.footerDiv .text {
+  color: var(--white);
+  font-size: 1rem;
+}
+
+.footerDiv .btn {
+  background: transparent;
+  border: 2px solid var(--white);
+  color: var(--white);
+  padding: 0.8rem 2rem;
+  min-width: 150px;
+  font-weight: 500;
+}
+
+.footerDiv .btn:hover {
+  background: var(--white);
+  color: var(--primary-color);
 }

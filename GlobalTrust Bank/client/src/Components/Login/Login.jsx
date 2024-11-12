@@ -1,28 +1,26 @@
+// Login.jsx
 import React, { useState } from 'react';
-import './Login.css';
-import '../../App.css';
 import { Link, useNavigate } from 'react-router-dom';
-import '../../App.scss';
-
-// Import assets
-import image from '../../LoginAssets/GTBmain.jpg';
-import logo from '../../LoginAssets/gbtlogo.jpg';
-
-// Imported Icons
 import { FaUserShield } from 'react-icons/fa';
 import { BsFillShieldLockFill } from 'react-icons/bs';
 import { AiOutlineSwapRight } from 'react-icons/ai';
 import useLogin from '../../hooks/useLogin';
 
+// Import assets
+import image from '../../LoginAssets/GTBmain.jpg';
+import logo from '../../LoginAssets/gbtlogo.jpg';
+
 const Login = () => {
-    const navigate = useNavigate(); // Correctly initializing useNavigate
-    const { loginUser, loading, error } = useLogin();
+    const navigate = useNavigate();
+    const { loginUser, loading } = useLogin();
 
     const [formValues, setFormValues] = useState({
         username: '',
         accountNumber: '',
         password: '',
     });
+
+    const [error, setError] = useState('');
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -34,44 +32,54 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await loginUser(formValues); // Await loginUser directly here
-        navigate('/overview'); // Navigate after loginUser
+        setError('');
+        
+        try {
+            const response = await loginUser(formValues);
+            if (response?.status === 'success') {
+                console.log('Login successful');
+            }
+        } catch (err) {
+            setError(err.message);
+            console.error('Login error:', err);
+        }
     };
 
     return (
-        <div className='loginPage flex'>
-            <div className='container flex'>
-                <div className="imageDiv">
-                    <img src={image} alt="Description of image" />
-                    <div className="textDiv">
-                        <h2 className='title'>Create and sell extraordinary products</h2>
-                        <p>Get a greater understanding of your money</p>
-                    </div>
+        <div className='loginPage'>
+            <div className='container'>
+            <div className="imageDiv">
+    <img src={image} alt="Bank Building" />
+    <div className="textDiv">
+        <h2 className='title'>GlobalTrust Bank</h2>
+        <p>Your Global Partner in Financial Security</p>
+    </div>
+    
+    <div className="footerDiv">
+        <span className="text">Don't have an account yet?</span>
+        <Link to={'/register'}>
+            <button className='btn'>Register</button>
+        </Link>
+    </div>
+</div>
 
-                    <div className="footerDiv flex">
-                        <span className="text">Don't have an account yet?</span>
-                        <Link to={'/register'}>
-                            <button className='btn'>Register</button>
-                        </Link>
-                    </div>
-                </div>
-
-                <div className="formDiv flex">
+                <div className="formDiv">
                     <div className="headerDiv">
-                        <img src={logo} alt="Logo" />
-                        <h3>Let Us Know You!</h3>
+                        <img src={logo} alt="Bank Logo" />
+                        <h3>Welcome Back!</h3>
                     </div>
-                    {error && <p className="error">{error}</p>} {/* Display error message */}
-                    <form className='form grid' onSubmit={handleSubmit}>
-                        {/* Username Field */}
+
+                    {error && <div className="error-popup">{error}</div>}
+
+                    <form className='form' onSubmit={handleSubmit}>
                         <div className="inputDiv">
                             <label htmlFor="username">Username</label>
-                            <div className="input flex">
+                            <div className="input">
                                 <FaUserShield className='icon' />
                                 <input
                                     type="text"
-                                    id='username'
-                                    placeholder='Enter Username'
+                                    id="username"
+                                    placeholder="Enter Username"
                                     value={formValues.username}
                                     onChange={handleChange}
                                     required
@@ -79,15 +87,14 @@ const Login = () => {
                             </div>
                         </div>
 
-                        {/* Account Number Field */}
                         <div className="inputDiv">
                             <label htmlFor="accountNumber">Account Number</label>
-                            <div className="input flex">
+                            <div className="input">
                                 <FaUserShield className='icon' />
                                 <input
                                     type="text"
-                                    id='accountNumber'
-                                    placeholder='Enter Account Number'
+                                    id="accountNumber"
+                                    placeholder="Enter Account Number"
                                     value={formValues.accountNumber}
                                     onChange={handleChange}
                                     required
@@ -95,15 +102,14 @@ const Login = () => {
                             </div>
                         </div>
 
-                        {/* Password Field */}
                         <div className="inputDiv">
                             <label htmlFor="password">Password</label>
-                            <div className="input flex">
+                            <div className="input">
                                 <BsFillShieldLockFill className='icon' />
                                 <input
                                     type="password"
-                                    id='password'
-                                    placeholder='Enter Password'
+                                    id="password"
+                                    placeholder="Enter Password"
                                     value={formValues.password}
                                     onChange={handleChange}
                                     required
@@ -111,17 +117,23 @@ const Login = () => {
                             </div>
                         </div>
 
-                        <button type='submit' className='btn flex' disabled={loading}>
-                            <span>{loading ? 'Logging in...' : 'Login'}</span>
+                        <button 
+                            type="submit" 
+                            className="btn login-btn" 
+                            disabled={loading}
+                        >
+                            {loading ? 'Logging in...' : 'Login'}
                             <AiOutlineSwapRight className='icon' />
                         </button>
 
-                         
+                        <div className="forgotPassword">
+                            <Link to="/forgot-password">Forgot Password?</Link>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     );
-}
+};
 
 export default Login;
