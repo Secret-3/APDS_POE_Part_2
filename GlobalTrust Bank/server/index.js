@@ -1,5 +1,3 @@
-// C:\Users\Sauraav\Desktop\new_poe\GlobalTrust Bank\server\index.js
-
 const https = require('https');
 const fs = require('fs');
 const express = require('express');
@@ -49,14 +47,6 @@ app.use((req, res, next) => {
 app.use('/api/overview', overviewRouter);
 app.use('/api/auth', authRouter);
 
-// Remove the duplicate CORS headers since we're using the cors middleware
-// app.use((req, res, next) => {
-//     res.setHeader("Access-Control-Allow-Origin", "*");
-//     res.setHeader("Access-Control-Allow-Headers", "*");
-//     res.setHeader("Access-Control-Allow-Methods", "*");
-//     next();
-// });
-
 // MongoDB Connection and Admin Initialization
 mongoose
     .connect('mongodb://127.0.0.1:27017/authentication', {
@@ -66,11 +56,11 @@ mongoose
     })
     .then(async () => {
         console.log('Connected to MongoDB');
-        await initializeAdmin(); // Initialize admin account after connection
+        await initializeAdmin();
     })
     .catch((error) => {
         console.error('Failed to connect to MongoDB:', error);
-        process.exit(1); // Exit process with failure
+        process.exit(1);
     });
 
 // Handle MongoDB connection errors after initial connection

@@ -1,5 +1,3 @@
-// C:\Users\Sauraav\Desktop\new_poe\GlobalTrust Bank\client\src\hooks\useLogin.js
-
 import { useAuth } from "../contexts/AuthContext";
 import { message } from 'antd';
 import { useState } from 'react';

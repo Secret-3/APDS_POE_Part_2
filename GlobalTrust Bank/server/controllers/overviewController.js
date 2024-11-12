@@ -1,5 +1,3 @@
-// C:\Users\Sauraav\Desktop\new_poe\GlobalTrust Bank\server\controllers\overviewController.js
-
 const Overview = require('../Models/overviewModel');
 const createError = require('../utils/appError');
 

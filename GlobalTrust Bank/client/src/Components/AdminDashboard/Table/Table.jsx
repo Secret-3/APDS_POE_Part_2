@@ -1,5 +1,3 @@
-// C:\Users\Sauraav\Desktop\new_poe\GlobalTrust Bank\client\src\Components\AdminDashboard\Table\Table.jsx
-
 import * as React from "react";
 import { useState, useEffect } from "react";
 import Table from "@mui/material/Table";
@@ -52,7 +50,7 @@ export default function BasicTable() {
   const handleDeclineClick = async (transactionId) => {
     try {
       await updateTransactionStatus(transactionId, 'Declined');
-      await loadTransactions(); // Reload the transactions
+      await loadTransactions();
       alert('Transaction has been declined.');
     } catch (error) {
       alert('Failed to decline transaction.');
@@ -68,7 +66,7 @@ export default function BasicTable() {
   const handleSubmitToSwift = async () => {
     try {
       await updateTransactionStatus(selectedTransaction._id, 'Approved');
-      await loadTransactions(); // Reload the transactions
+      await loadTransactions();
       alert('Transaction has been submitted to SWIFT.');
       setOpenDialog(false);
       setSelectedTransaction(null);

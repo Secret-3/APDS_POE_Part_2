@@ -1,11 +1,9 @@
-// C:\Users\Sauraav\Desktop\new_poe\GlobalTrust Bank\server\controllers\authController.js
-
 const User = require('../Models/userModel');
 const jwt = require('jsonwebtoken');
 const createError = require('../utils/appError');
 const bcrypt = require('bcryptjs');
 
-// Define regex patterns
+// Regex patterns
 const nameRegex = /^[a-zA-Z\s]{2,50}$/;
 const usernameRegex = /^[a-zA-Z0-9_]{3,20}$/;
 const idNumberRegex = /^\d{13}$/;
@@ -109,7 +107,7 @@ exports.signup = async (req, res, next) => {
             idNumber: idNumber,
             accountNumber: accountNumber,
             password: hashedPassword,
-            role: 'user' // Default to user role
+            role: 'user'
         });
 
         console.log('New user created:', newUser);

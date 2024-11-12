@@ -1,5 +1,3 @@
-// C:\Users\Sauraav\Desktop\new_poe\GlobalTrust Bank\client\src\contexts\AuthContext.jsx
-
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const AuthContext = createContext();

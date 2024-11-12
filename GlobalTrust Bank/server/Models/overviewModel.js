@@ -1,5 +1,3 @@
-// C:\Users\Sauraav\Desktop\new_poe\GlobalTrust Bank\server\Models\overviewModel.js
-
 const mongoose = require('mongoose');
 
 const overviewSchema = new mongoose.Schema({

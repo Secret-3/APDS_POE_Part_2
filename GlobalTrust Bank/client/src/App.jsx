@@ -1,5 +1,3 @@
-// C:\Users\Sauraav\Desktop\new_poe\GlobalTrust Bank\client\src\App.jsx
-
 import Sidebar from './Components/AdminDashboard/Sidebar/Sidebar';
 import RightSide from './Components/AdminDashboard/RigtSide/RightSide';
 import './App.css';

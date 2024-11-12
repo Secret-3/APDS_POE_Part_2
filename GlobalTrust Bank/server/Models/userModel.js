@@ -1,5 +1,3 @@
-// C:\Users\Sauraav\Desktop\new_poe\GlobalTrust Bank\server\Models\userModel.js
-
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
