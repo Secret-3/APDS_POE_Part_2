@@ -1,7 +1,8 @@
+// C:\Users\Sauraav\Desktop\new_poe\GlobalTrust Bank\client\src\Components\AdminDashboard\Cards\Cards.jsx
+
 import React from "react";
 import "./Cards.css";
-import { cardsData } from "../../Data/Data";
-
+import { cardsData } from "../Data/Data";  // Updated import path
 import Card from "../Card/Card";
 
 const Cards = () => {
