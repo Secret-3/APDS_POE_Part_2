@@ -32,6 +32,12 @@ By offering a user-friendly interface, the portal provides an accessible solutio
 - Transaction Processing: Users can enter the amount to be paid, choose the currency, and select a payment provider.
 - Account Information Submission: Customers enter the recipient's account information and SWIFT code before finalizing the payment.
 - Transaction Storage: All transactions are securely stored in a database for record-keeping and review.
+  
+- Employee Pre-Registration: Bank employees are pre-registered on the portal upon employment, eliminating the need for additional registration steps.
+- Secure Employee Login: Employees log in securely to access the system and view transactions that require processing.
+- Transaction Review and Verification: Employees can review transaction details, verify payee account information, and ensure that the provided SWIFT code is correct.
+- Transaction Authorization: A 'Verified' button is available next to each transaction, allowing employees to mark it as verified before submission.
+- SWIFT Submission: Once verified, employees can click the 'Submit to SWIFT' button to forward the transaction for payment, completing the process on the portal.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Prerequisites
